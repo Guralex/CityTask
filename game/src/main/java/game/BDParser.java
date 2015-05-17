@@ -12,5 +12,5 @@ public class BDParser implements Parsing {
 		return null;
 	}
 	
-	TreeSet<String> set = new TreeSet<String>();
+	
 }
