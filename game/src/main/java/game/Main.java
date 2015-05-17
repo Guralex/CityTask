@@ -7,13 +7,12 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello");
 		
-		TreeSet<String> set = new TreeSet<String>();
+		Parsing parser=Factory.getParse("BD");
 		
-		set.add("Анапа".toLowerCase());
-		set.add("Аргентина".toLowerCase());
-		set.add("бооб".toLowerCase());
-		set.add("Аналб".toLowerCase());
-		System.out.println(set);
+		TreeSet<String> set ;
+		
+		set = parser.parse("");
+		//System.out.println(set);
 		
 		Game game=new Game(set);
 		

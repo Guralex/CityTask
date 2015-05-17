@@ -1,8 +1,9 @@
 package game;
 
-import java.util.Set;
+
+import java.util.TreeSet;
 
 public interface Parsing {
 
-	public abstract Set<String> parse(Object obj);
+	public abstract TreeSet<String> parse(Object obj);
 }

@@ -27,7 +27,8 @@ public class Game {
 			return false;
 		}
 
-		lastchar = city.toLowerCase().charAt(city.length() - 1);
+		if(city.toLowerCase().charAt(city.length() - 1)=='ы') lastchar = city.toLowerCase().charAt(city.length() - 2);
+		else lastchar = city.toLowerCase().charAt(city.length() - 1);
 		System.out.println("Ход :" + city);
 		return true;
 
@@ -56,7 +57,7 @@ public class Game {
 			}
 			do {
 
-				turn = sc.nextLine();
+				turn = sc.nextLine().toLowerCase();
 				if (turn.equals("выход")) {
 					System.out.println("Вы проиграли");
 					break outer;
