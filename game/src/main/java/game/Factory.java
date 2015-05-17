@@ -13,6 +13,9 @@ public class Factory{
 		
 		case "XML":parser = new XMLParser();
 			break;
+		
+		case "Excel":parser = new ExcelParser();
+		break;
 		}
 		
 		return parser;
