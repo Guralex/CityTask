@@ -16,6 +16,9 @@ public class Factory{
 		
 		case "Excel":parser = new ExcelParser();
 		break;
+		
+		case "TXT":parser = new TXTParser();
+		break;
 		}
 		
 		return parser;
