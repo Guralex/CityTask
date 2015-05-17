@@ -14,6 +14,10 @@ public class Game {
 		lastchar = 'à';
 	}
 
+	public char getLastchar() {
+		return lastchar;
+	}
+
 	private boolean turn(String city) {
 
 		if (city.charAt(0) != lastchar) {
