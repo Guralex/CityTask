@@ -9,19 +9,43 @@ import org.junit.Test;
 
 public class TurnsTest {
 
+	Game game;
 	@Before
 	public void start(){
 		
 		TreeSet<String> set = new TreeSet<String>() ;
-		set.add("Àá");
-		set.add("Áâ");
-		Game game=new Game(set);
+		set.add("àá");
+		set.add("aü");
+		set.add("aû");
+		game=new Game(set);
+		
 		
 	}
 	
 	@Test
-	public void testTurn() {
-		assertTrue(true);
+	public void lastCharTest() {
+		assertEquals(game.getLastchar(),'à');
+		game.turn("àá");
+		assertEquals(game.getLastchar(),'á');
 	}
+	
+	@Test
+	public void illegalCharTest() {
+		assertEquals(game.getLastchar(),'à');
+		assertFalse(game.turn("!!"));
+	}
+	
+	@Test
+	public void specialCharTest() {
+		assertEquals(game.getLastchar(),'à');
+		game.turn("aü");
+		assertEquals(game.getLastchar(),'à');
+		game.turn("àû");
+		assertEquals(game.getLastchar(),'à');
+	}
+	
+	
+	
+	
 
 }

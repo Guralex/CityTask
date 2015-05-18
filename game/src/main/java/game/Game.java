@@ -22,7 +22,7 @@ public class Game {
 		return lastchar;
 	}
 
-	private boolean turn(String city) {
+	public boolean turn(String city) {
 
 		if (city.charAt(0) != lastchar) {
 
@@ -35,7 +35,7 @@ public class Game {
 			return false;
 		}
 
-		if(city.toLowerCase().charAt(city.length() - 1)=='ы') lastchar = city.toLowerCase().charAt(city.length() - 2);
+		if(city.toLowerCase().charAt(city.length() - 1)=='ы'||city.toLowerCase().charAt(city.length() - 1)=='ь') lastchar = city.toLowerCase().charAt(city.length() - 2);
 		else lastchar = city.toLowerCase().charAt(city.length() - 1);
 		System.out.println("’од :" + city);
 		log.info("’од : "+city);
