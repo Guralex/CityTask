@@ -17,7 +17,7 @@ public class TXTParser implements Parsing {
 		try(BufferedReader br=new BufferedReader(new FileReader(txtFile))){
 			String line;
 			while((line=br.readLine())!=null){
-				set.add(line);
+				set.add(line.toLowerCase());
 			}
 		}catch(IOException e){
 			e.printStackTrace();
