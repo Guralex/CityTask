@@ -19,6 +19,8 @@ public class TurnsTest {
 		fakeset.add("אא");
 		fakeset.add("אב");
 		fakeset.add("בג");
+		fakeset.add("אû");
+		fakeset.add("אü");
 		mock = EasyMock.createMock(Parsing.class);
 		EasyMock.expect(mock.parse("")).andReturn(fakeset);
 		EasyMock.replay(mock);
@@ -26,6 +28,16 @@ public class TurnsTest {
 		game=new Game(set);
 				
 	}
+	
+	@Test
+	public void turnTest() {
+		
+		assertTrue(game.getSet().contains("אב"));
+		assertEquals(game.getLastchar(),'א');
+		assertTrue(game.turn("אב"));
+		EasyMock.verify(mock);
+	}
+
 	
 	@Test
 	public void lastCharTest() {
@@ -36,8 +48,10 @@ public class TurnsTest {
 		EasyMock.verify(mock);
 	}
 	
+	
+	
 	@Test
-	public void illegalCharTest() {
+	public void illegalWordTest() {
 		
 		assertEquals(game.getLastchar(),'א');
 		assertFalse(game.turn("!!"));
@@ -48,7 +62,7 @@ public class TurnsTest {
 	public void specialCharTest() {
 		
 		assertEquals(game.getLastchar(),'א');
-		game.turn("aü");
+		game.turn("אü");
 		assertEquals(game.getLastchar(),'א');
 		game.turn("אû");
 		assertEquals(game.getLastchar(),'א');
@@ -56,7 +70,14 @@ public class TurnsTest {
 	}
 	
 	
-	
+	@Test
+	public void setTest() {
+		
+		assertTrue(game.getSet().contains("אב"));
+		assertTrue(game.turn("אב"));
+		assertFalse(game.getSet().contains("אב"));
+		EasyMock.verify(mock);
+	}
 	
 
 }

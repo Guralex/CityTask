@@ -22,6 +22,11 @@ public class Game {
 		return lastchar;
 	}
 
+	public TreeSet<String> getSet() {
+		return set;
+	}
+
+	
 	public boolean turn(String city) {
 
 		if (city.charAt(0) != lastchar) {
